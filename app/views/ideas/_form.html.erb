@@ -1,0 +1,17 @@
+<%= simple_form_for @idea do |f| %>
+  <% if @idea.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
+
+      <ul>
+      <% @idea.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.input :name, label: 'Name' %>
+  <%= f.input :description, as: :text, label: 'Description' %>
+  <%= f.input :picture, as: :file, label: 'Picture' %>
+  <%= f.button :submit %>
+<% end %>
